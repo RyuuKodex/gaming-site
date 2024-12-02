@@ -9,6 +9,7 @@ services:
       APP_ENV: "dev"
       APP_SECRET: "a9806d99cd5c1503d8af30c963c9411f"
       DATABASE_URL: "mysql://user:password@database:3306/symfony-bootstrap"
+      MESSENGER_TRANSPORT_DSN: "amqp://guest:guest@rabbitmq:5672/%2f"
   database:
     image: 'mysql:8.2.0'
     environment:
@@ -16,3 +17,11 @@ services:
       MYSQL_DATABASE: "symfony-bootstrap"
       MYSQL_USER: "user"
       MYSQL_PASSWORD: "password"
+  rabbitmq:
+    image: 'rabbitmq:management'
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+    environment:
+        RABBITMQ_DEFAULT_USER: "guest"
+        RABBITMQ_DEFAULT_PASS: "guest"

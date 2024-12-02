@@ -8,17 +8,16 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final readonly class IGDBClient
 {
-    public function __construct(private HttpClientInterface $httpClient, private string $clientId, private TwitchClient $twitchClient)
-    {
-    }
+    public function __construct(private HttpClientInterface $httpClient, private string $clientId) {}
 
-    public function getGames()
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    public function getGames(int $limit, int $offset, string $accessToken): array
     {
-        $accessToken = $this->twitchClient->fetchToken();
-
         $headers = [
             'Client-ID' => $this->clientId,
-            'Authorization' => 'Bearer ' . $accessToken,
+            'Authorization' => 'Bearer '.$accessToken,
             'Accept' => 'application/json',
         ];
 
@@ -27,12 +26,46 @@ final readonly class IGDBClient
             'https://api.igdb.com/v4/games',
             [
                 'headers' => $headers,
-                'body' => 'fields name, summary; limit 100; search "Baldurs Gate";',
+                'body' => "fields name; limit {$limit}; offset {$offset};",
             ]
         );
 
-        dd($response->toArray());
-
         return $response->toArray();
+    }
+
+    public function getTotalGames(string $accessToken): int
+    {
+        $limit = 500;
+        $offset = 0;
+        $totalCount = 0;
+
+        $headers = [
+            'Client-ID' => $this->clientId,
+            'Authorization' => 'Bearer '.$accessToken,
+            'Accept' => 'application/json',
+        ];
+
+        while (true) {
+            $response = $this->httpClient->request(
+                'POST',
+                'https://api.igdb.com/v4/games',
+                [
+                    'headers' => $headers,
+                    'body' => sprintf('fields id; limit %d; offset %d;', $limit, $offset),
+                ]
+            );
+
+            $data = $response->toArray();
+            $batchCount = count($data);
+
+            if (0 === $batchCount) {
+                break;
+            }
+
+            $totalCount += $batchCount;
+            $offset += $limit;
+        }
+
+        return $totalCount;
     }
 }
