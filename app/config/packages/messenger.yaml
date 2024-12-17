@@ -8,4 +8,4 @@ framework:
           exchange:
             name: game_offsets
     routing:
-      'App\Application\CLI\Message\FetchGamesMessage': async
+      'App\Game\Application\CLI\Message\FetchGamesMessage': async

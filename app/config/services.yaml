@@ -10,11 +10,11 @@ services:
       - '../src/Entity/'
       - '../src/Migrations/'
       - '../src/Kernel.php'
-  App\Infrastructure\HttpClient\TwitchClient:
+  App\Game\Infrastructure\HttpClient\TwitchClient:
     arguments:
       $clientId: '%env(CLIENT_ID)%'
       $clientSecret: '%env(CLIENT_SECRET)%'
 
-  App\Infrastructure\HttpClient\IGDBClient:
+  App\Game\Infrastructure\HttpClient\IGDBClient:
     arguments:
       $clientId: '%env(CLIENT_ID)%'

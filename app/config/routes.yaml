@@ -1,5 +1,5 @@
-controllers:
-  resource: ../src/UI/Controller/
+game:
+  resource: ../src/Game/UI/Controller/
   type: attribute
 
 kernel:

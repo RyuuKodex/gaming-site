@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\CLI\Message;
+namespace App\Game\Application\CLI\Message;
 
 final readonly class FetchGamesMessage
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\CLI\Command;
+namespace App\Game\Application\CLI\Command;
 
-use App\Application\CLI\Message\FetchGamesMessage;
-use App\Infrastructure\HttpClient\IGDBClient;
-use App\Infrastructure\HttpClient\TwitchClient;
+use App\Game\Application\CLI\Message\FetchGamesMessage;
+use App\Game\Infrastructure\HttpClient\IGDBClient;
+use App\Game\Infrastructure\HttpClient\TwitchClient;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Repository;
+namespace App\Game\Infrastructure\Repository;
 
-use App\Domain\Entity\Game;
-use App\Domain\Repository\GameStore;
+use App\Game\Domain\Entity\Game;
+use App\Game\Domain\Repository\GameStore;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

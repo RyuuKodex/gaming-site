@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Repository;
+namespace App\Game\Domain\Repository;
 
-use App\Domain\Entity\Game;
+use App\Game\Domain\Entity\Game;
 
 interface GameStore
 {
