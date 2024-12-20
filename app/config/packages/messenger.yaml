@@ -1,0 +1,11 @@
+framework:
+  messenger:
+    transports:
+      async:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        serializer: messenger.transport.symfony_serializer
+        options:
+          exchange:
+            name: game_offsets
+    routing:
+      'App\Game\Application\CLI\Message\FetchGamesMessage': async
