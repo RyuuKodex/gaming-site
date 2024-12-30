@@ -1,6 +1,14 @@
 game:
-  resource: ../src/Game/UI/Controller/
+  resource: ../src/Game/UI/Action/
   type: attribute
+
+user:
+  resource: ../src/User/UI/Action/
+  type: attribute
+
+logout:
+  path: /logout
+  controller: Symfony\Bundle\SecurityBundle\Controller\LogoutController
 
 kernel:
   resource: ../src/Kernel.php

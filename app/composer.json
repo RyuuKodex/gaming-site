@@ -27,6 +27,7 @@
         "symfony/property-info": "7.1.*",
         "symfony/routing": "7.1.*",
         "symfony/runtime": "7.1.*",
+        "symfony/security-bundle": "7.1.*",
         "symfony/serializer": "7.1.*",
         "symfony/uid": "7.1.*",
         "symfony/yaml": "7.1.*"
@@ -93,6 +94,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^4.0",
         "friendsofphp/php-cs-fixer": "^3.8",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.5",
@@ -100,6 +102,8 @@
         "phpstan/phpstan-phpunit": "^1.1",
         "phpstan/phpstan-symfony": "^1.1",
         "phpunit/phpunit": "^9.5",
-        "symfony/phpunit-bridge": "7.1.*"
+        "symfony/phpunit-bridge": "7.1.*",
+        "symfony/stopwatch": "7.1.*",
+        "symfony/web-profiler-bundle": "7.1.*"
     }
 }
